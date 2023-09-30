@@ -1,0 +1,12 @@
+node_modules/
+
+dist/
+
+.npm
+
+.vscode/
+
+.idea/
+*.iml
+
+.DS_Store

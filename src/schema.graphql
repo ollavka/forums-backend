@@ -1,0 +1,59 @@
+type User {
+  id: ID!
+  name: String!
+  username: String!
+  phone: String
+  email: String!
+  photo: String
+  forumIds: [ID]!
+}
+
+type Forum {
+  id: ID!
+  name: String!
+  userIds: [ID]!
+}
+
+type Message {
+  id: ID!
+  text: String!
+  senderId: ID!
+  forumId: ID!
+  timestamp: String!
+}
+
+type UsersResult {
+  users: [User]!
+  error: String
+}
+
+type JoinForumResult {
+  success: Boolean!
+  error: String
+}
+
+type CreateForumResult {
+  forum: Forum
+  error: String
+}
+
+type PostMessageResult {
+  message: Message
+  error: String
+}
+
+type Query {
+  users: [User]!
+  usersByForum(forumId: ID!): UsersResult!
+  forums(userId: ID, joinedOnly: Boolean, forumName: String): [Forum]!
+  messages(messageText: String): [Message]!
+  user(id: ID!): User
+  forum(id: ID!): Forum
+  message(id: ID!): Message
+}
+
+type Mutation {
+  joinToForum(userId: ID!, forumId: ID!): JoinForumResult!
+  createForum(userId: ID!, forumName: String!): CreateForumResult!
+  postMessage(forumId: ID!, userId: ID!, text: String!): PostMessageResult!
+}

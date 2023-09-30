@@ -1,0 +1,26 @@
+{
+  "name": "forums-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node src/server.ts",
+    "dev": "nodemon src/server.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Oleksii Lavka",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server-express": "^3.12.1",
+    "express": "^4.18.2",
+    "graphql": "^16.8.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.18",
+    "@types/node": "^20.7.1",
+    "nodemon": "^3.0.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  }
+}
