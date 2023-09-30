@@ -47,7 +47,7 @@ Welcome to the documentation for our GraphQL API. This API provides access to va
 ## 📤 Queries
 * ### users: Get a list of all users
     * Query:
-    ```
+    ```graphql
     query Get_Users {
       users {
         id
@@ -61,7 +61,7 @@ Welcome to the documentation for our GraphQL API. This API provides access to va
     }
     ```
     * Response:
-    ```
+    ```json
     {
   "data": {
         "users": [
@@ -90,7 +90,7 @@ Welcome to the documentation for our GraphQL API. This API provides access to va
     **id** (ID): User ID.
 
     * Query:
-    ```
+    ```graphql
     query Get_User {
       user(id: "3") {
         id
@@ -104,7 +104,7 @@ Welcome to the documentation for our GraphQL API. This API provides access to va
     }
     ```
     * Response:
-    ```
+    ```json
     {
       "data": {
         "user": {
@@ -187,7 +187,7 @@ Welcome to the documentation for our GraphQL API. This API provides access to va
     **messageText** (String): Message text by which suitable messages are filtered (optional)
 
     * Query:
-    ```
+    ```graphql
    query Get_Messages {
       messages(messageText: "chat") {
         id
@@ -199,7 +199,7 @@ Welcome to the documentation for our GraphQL API. This API provides access to va
     }
     ```
     * Response:
-    ```
+    ```json
     {
       "data": {
         "messages": [
@@ -222,7 +222,7 @@ Welcome to the documentation for our GraphQL API. This API provides access to va
     **id** (ID): Message ID.
 
     * Query:
-    ```
+    ```graphql
     query Get_Message {
       message(id: "1") {
         id
@@ -235,7 +235,7 @@ Welcome to the documentation for our GraphQL API. This API provides access to va
 
     ```
     * Response:
-    ```
+    ```json
     {
       "data": {
         "message": {
@@ -260,7 +260,7 @@ Welcome to the documentation for our GraphQL API. This API provides access to va
     **forumName** (String): The text that appears in the forum title is needed to filter specific forums by name. (optional, empty string by default).
 
     * Query:
-    ```
+    ```graphql
    query Get_Forums {
       forums(userId: "1", joinedOnly: true, forumName: "tech") {
         id
@@ -271,7 +271,7 @@ Welcome to the documentation for our GraphQL API. This API provides access to va
 
     ```
     * Response:
-    ```
+    ```json
     {
       "data": {
         "forums": [
@@ -296,7 +296,7 @@ Welcome to the documentation for our GraphQL API. This API provides access to va
     **id** (ID): Forum ID.
 
     * Query:
-    ```
+    ```graphql
     query Get_Forum {
       forum(id: "4") {
         id
@@ -307,7 +307,7 @@ Welcome to the documentation for our GraphQL API. This API provides access to va
 
     ```
     * Response:
-    ```
+    ```json
     {
       "data": {
         "forum": {
@@ -334,7 +334,7 @@ Welcome to the documentation for our GraphQL API. This API provides access to va
     **forumId** (ID!): ID of the forum the user is trying to join
 
     * Mutation:
-    ```
+    ```graphql
     mutation Join_To_Forum {
       joinToForum(userId: "1", forumId: "5") {
         success
@@ -343,7 +343,7 @@ Welcome to the documentation for our GraphQL API. This API provides access to va
     }
     ```
     * Response (if the user has successfully joined):
-    ```
+    ```json
    {
       "data": {
         "joinToForum": {
@@ -354,7 +354,7 @@ Welcome to the documentation for our GraphQL API. This API provides access to va
     }
     ```
     * Response (if a user tries to join a forum they are already a member of.):
-    ```
+    ```json
    {
       "data": {
         "joinToForum": {
@@ -374,7 +374,7 @@ Welcome to the documentation for our GraphQL API. This API provides access to va
     **forumName** (String!): New forum name join
 
     * Mutation:
-    ```
+    ```graphql
    mutation Create_Forum {
       createForum(userId: "1", forumName: "New Forum") {
         forum {
@@ -387,7 +387,7 @@ Welcome to the documentation for our GraphQL API. This API provides access to va
     }
     ```
     * Response (if the user has successfully created a new forum):
-    ```
+    ```json
     {
       "data": {
         "createForum": {
@@ -405,7 +405,7 @@ Welcome to the documentation for our GraphQL API. This API provides access to va
     ```
 
     * Response (if a forum by that name already exists):
-    ```
+    ```json
     {
       "data": {
         "createForum": {
@@ -427,7 +427,7 @@ Welcome to the documentation for our GraphQL API. This API provides access to va
     **text** (String!): Message text.
 
     * Mutation:
-    ```
+    ```graphql
    mutation Post_Message {
       postMessage(forumId: "1", userId: "1", text: "Hello, World!") {
         message {
@@ -442,7 +442,7 @@ Welcome to the documentation for our GraphQL API. This API provides access to va
     }
     ```
     * Response:
-    ```
+    ```json
     {
       "data": {
         "postMessage": {
